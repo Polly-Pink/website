@@ -1,4 +1,8 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ReactNode,
+} from "react";
 import styles from "./IconButton.module.scss";
 
 interface BaseProps {
@@ -9,19 +13,23 @@ interface BaseProps {
 }
 
 /** Props for a link variant — renders an `<a>` with `target="_blank"`. */
-export interface LinkProps extends BaseProps, Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "type" | "children"> {
-  type: "link";
+export interface LinkProps
+  extends BaseProps,
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "children"> {
+  variant: "link";
 }
 
 /** Props for an action variant — renders a `<button>` for in-page triggers. */
-export interface ActionProps extends BaseProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type" | "children"> {
-  type: "action";
+export interface ActionProps
+  extends BaseProps,
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
+  variant: "action";
 }
 
 export type IconButtonProps = LinkProps | ActionProps;
 
 /**
- * Icon-only button, discriminated by `type`:
+ * Icon-only button, discriminated by `variant`:
  * - `"link"` — renders an `<a>` that opens in a new tab (`target="_blank"`).
  *   Pass `href` and any other anchor attributes.
  * - `"action"` — renders a `<button>` for in-page interactions.
@@ -32,19 +40,20 @@ export type IconButtonProps = LinkProps | ActionProps;
  * underlying element.
  *
  * @example
- * <IconButton type="link" href="https://t.me/polly" label="Telegram">
+ * <IconButton variant="link" href="https://t.me/polly" label="Telegram">
  *   <TelegramIcon />
  * </IconButton>
  *
  * @example
- * <IconButton type="action" onClick={handleCopy} label="Copy address">
+ * <IconButton variant="action" onClick={handleCopy} label="Copy address">
  *   <CopyIcon />
  * </IconButton>
  */
 export function IconButton(props: IconButtonProps) {
-  if (props.type === "link") {
-    const { label, children, type, ...rest } = props as LinkProps;
+  if (props.variant === "link") {
+    const { label, children, variant, ...rest } = props as LinkProps;
     return (
+      // biome-ignore lint/a11y/useAriaPropsSupportedByRole: aria-label is valid on <a> — biome false positive
       <a
         target="_blank"
         rel="noopener noreferrer"
@@ -57,13 +66,9 @@ export function IconButton(props: IconButtonProps) {
     );
   }
 
-  const { label, children, type, ...rest } = props as ActionProps;
+  const { label, children, variant, ...rest } = props as ActionProps;
   return (
-    <button
-      {...rest}
-      className={styles["icon-button"]}
-      aria-label={label}
-    >
+    <button {...rest} className={styles["icon-button"]} aria-label={label}>
       {children}
     </button>
   );
