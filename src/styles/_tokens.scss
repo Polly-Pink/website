@@ -1,0 +1,24 @@
+@forward 'colors';
+
+/// Base unit for the spacing scale.
+/// @type Number
+$space-base: 4px;
+
+/// Compute a spacing value from the 4px base scale.
+/// @param {Number} $step - Multiplier (e.g. `2` → 8px, `4` → 16px)
+/// @return {Number}
+/// @example space(4) // 16px
+@function space($step) {
+  @return $step * $space-base;
+}
+
+/// Breakpoint map for mobile-first media queries.
+/// @type Map
+$breakpoints: (
+  sm:  640px,
+  md:  768px,
+  lg:  1024px,
+  xl:  1280px,
+  2xl: 1600px,
+);
+

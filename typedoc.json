@@ -1,0 +1,8 @@
+{
+  "entryPointStrategy": "expand",
+  "entryPoints": ["src/components"],
+  "out": ".docs/code",
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "readme": "none"
+}

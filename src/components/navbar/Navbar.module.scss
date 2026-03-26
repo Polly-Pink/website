@@ -1,0 +1,103 @@
+@use 'sass:map';
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.navbar-outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: space(2) space(3);
+  width: 100%;
+  max-width: map.get($breakpoints, 'xl');
+  pointer-events: auto;
+
+  @include bp(md) {
+    padding: space(4) space(6);
+  }
+
+  @include bp(xl) {
+    padding: space(6) space(8);
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+
+    @include bp(md) {
+      gap: 12px;
+    }
+
+    @include bp(xl) {
+      gap: 16px;
+    }
+  }
+
+  &__logo-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+
+    @include bp(md) {
+      width: 44px;
+      height: 44px;
+    }
+
+    @include bp(xl) {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+  &__logo-text {
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings: 'ital' 0;
+    font-size: 40px;
+    line-height: 1;
+    transform: translateY(0.04em);
+    color: color(pink, 900);
+
+    @include bp(md) {
+      font-size: 48px;
+    }
+
+    @include bp(xl) {
+      font-size: 56px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: space(2);
+    padding: 8px 8px 16px 8px;
+    background: rgba(color(neutral, 0), 0.7);
+    border-radius: 12px;
+
+    @include bp(md) {
+      border-radius: 14px;
+      padding: 10px 10px 18px 10px;
+    }
+
+    @include bp(xl) {
+      border-radius: 16px;
+      padding: 12px 12px 20px 12px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@use 'sass:map';
+
+/// Nested color palette map.
+/// @type Map
+$colors: (
+  pink: (
+    100: #fecada,
+    200: #fdbbd0,
+    500: #8c3b54,
+    600: #703163,
+    700: #54113e,
+    800: #873b8c,
+    900: #2f002a,
+  ),
+  yellow: (
+    400: #ffcb30,
+  ),
+  blue: (
+    900: #332b75,
+  ),
+  neutral: (
+    0:   #ffffff,
+    50:  #fafeff,
+    100: #eeeeee,
+    800: #141414,
+    900: #000000,
+  ),
+);
+
+/// Retrieve a color from the palette.
+/// @param {String} $palette - The color palette (e.g. `pink`, `yellow`, `blue`, `neutral`)
+/// @param {Number} $shade - The shade within the palette (e.g. `200`, `900`)
+/// @return {Color}
+/// @example color(pink, 200) // #fdbbd0
+@function color($palette, $shade) {
+  @return map.get(map.get($colors, $palette), $shade);
+}

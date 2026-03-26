@@ -6,13 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "generate": "typedoc",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "prepare": "husky"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
     "next": "16.2.1",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "simple-icons": "^16.13.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
@@ -20,6 +24,9 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "husky": "^9.1.7",
+    "sass": "^1.98.0",
+    "typedoc": "^0.28.18",
     "typescript": "^5"
   }
 }

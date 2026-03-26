@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use 'tokens' as t;
+
+/// Mobile-first breakpoint mixin.
+/// @param {String} $size - Breakpoint key from `$breakpoints` (e.g. `sm`, `lg`, `2xl`)
+/// @example
+///   @include bp(lg) { font-size: 72px; }
+@mixin bp($size) {
+  @media (min-width: map.get(t.$breakpoints, $size)) {
+    @content;
+  }
+}
