@@ -24,7 +24,6 @@
       "#ui": ["./src/components/ui/index.ts"],
       "#ui/*": ["./src/components/ui/*"],
       "#styles/*": ["./src/styles/*"],
-      "#assets/*": ["./src/assets/*"],
       "#lib/*": ["./src/lib/*"],
       "#config/*": ["./src/config/*"]
     }

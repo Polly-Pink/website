@@ -1,5 +1,5 @@
 import Image from "next/image";
-import pollyImg from "#assets/images/polly.png";
+import pollyImg from "../../../assets/images/polly.png";
 import styles from "./Illustration.module.scss";
 
 /**
