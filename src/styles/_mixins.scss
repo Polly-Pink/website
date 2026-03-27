@@ -1,8 +1,24 @@
 @use 'sass:map';
 @use 'tokens' as t;
 
+/// Hard bottom shadow.
+/// @param {Color} $color - Shadow color
+/// @param {Number} $offset - Drop distance (e.g. `6px`)
+/// @example @include m.shadow(colors.pick(pink, 500), 6px)
+@mixin shadow($color, $offset) {
+  box-shadow: 0px $offset 0px $color;
+}
+
+/// Retrieve a breakpoint value from the token map.
+/// @param {String} $size - Breakpoint key (e.g. `sm`, `lg`, `xxl`)
+/// @return {Number}
+/// @example max-width: m.breakpoint('xl')
+@function breakpoint($size) {
+  @return map.get(t.$breakpoints, $size);
+}
+
 /// Mobile-first breakpoint mixin.
-/// @param {String} $size - Breakpoint key from `$breakpoints` (e.g. `sm`, `lg`, `2xl`)
+/// @param {String} $size - Breakpoint key from `$breakpoints` (e.g. `sm`, `lg`, `xxl`)
 /// @example
 ///   @include bp(lg) { font-size: 72px; }
 @mixin bp($size) {

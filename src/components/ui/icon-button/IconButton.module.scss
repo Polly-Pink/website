@@ -1,0 +1,62 @@
+@use '../../../styles/colors' as colors;
+@use '../../../styles/mixins' as mix;
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  background: colors.pick(pink, 200);
+  border: 3px solid colors.pick(pink, 500);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+  @include mix.shadow(colors.pick(pink, 500), 6px);
+
+  svg {
+    width: 65%;
+    height: 65%;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+    outline: none;
+    @include mix.shadow(colors.pick(pink, 500), 8px);
+  }
+
+  &:active {
+    transform: translateY(4px);
+    @include mix.shadow(colors.pick(pink, 500), 2px);
+  }
+
+  @include mix.bp(md) {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+
+  @include mix.bp(xl) {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  &--secondary {
+    background: colors.pick(yellow, 400);
+    border-color: colors.pick(blue, 900);
+    @include mix.shadow(colors.pick(blue, 900), 6px);
+
+    &:hover,
+    &:focus-visible {
+      @include mix.shadow(colors.pick(blue, 900), 8px);
+    }
+
+    &:active {
+      @include mix.shadow(colors.pick(blue, 900), 2px);
+    }
+  }
+}

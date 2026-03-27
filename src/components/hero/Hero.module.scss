@@ -1,0 +1,57 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as mix;
+
+.hero {
+  overflow: hidden;
+  height: 100vh;
+  background-image: url("../../assets/images/iceberg.png");
+  background-size: cover;
+  background-position: center;
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: t.space(8);
+    max-width: mix.breakpoint('lg');
+    margin: 0 auto;
+    padding: t.space(60) t.space(6);
+
+    @include mix.bp(sm) {
+      padding: t.space(22) t.space(8);
+    }
+
+    @include mix.bp(sm) {
+      align-items: flex-start;
+      gap: t.space(12);
+      padding: t.space(16);
+    }
+
+    @include mix.bp(md) {
+      padding: t.space(20);
+    }
+
+    @include mix.bp(xl) {
+      padding: t.space(0);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: t.space(10);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+
+    @include mix.bp(sm) {
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+
+}

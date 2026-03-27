@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { HTMLAttributes } from "react";
 import { siInstagram, siTelegram, siX } from "simple-icons";
 import { fontDisplay } from "#lib/fonts";
-import { IconButton } from "#ui/IconButton";
+import { IconButton } from "#ui";
 import styles from "./Navbar.module.scss";
 
 /**

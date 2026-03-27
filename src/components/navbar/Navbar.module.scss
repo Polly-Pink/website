@@ -1,6 +1,6 @@
-@use 'sass:map';
-@use '../../styles/tokens' as *;
-@use '../../styles/mixins' as *;
+@use '../../styles/colors' as colors;
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as mix;
 
 .navbar-outer {
   position: absolute;
@@ -18,17 +18,17 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: space(2) space(3);
+  padding: t.space(2) t.space(3);
   width: 100%;
-  max-width: map.get($breakpoints, 'xl');
+  max-width: mix.breakpoint('xl');
   pointer-events: auto;
 
-  @include bp(md) {
-    padding: space(4) space(6);
+  @include mix.bp(md) {
+    padding: t.space(4) t.space(6);
   }
 
-  @include bp(xl) {
-    padding: space(6) space(8);
+  @include mix.bp(xl) {
+    padding: t.space(6) t.space(8);
   }
 
   &__logo {
@@ -37,11 +37,11 @@
     align-items: center;
     gap: 8px;
 
-    @include bp(md) {
+    @include mix.bp(md) {
       gap: 12px;
     }
 
-    @include bp(xl) {
+    @include mix.bp(xl) {
       gap: 16px;
     }
   }
@@ -51,12 +51,12 @@
     height: 36px;
     object-fit: contain;
 
-    @include bp(md) {
+    @include mix.bp(md) {
       width: 44px;
       height: 44px;
     }
 
-    @include bp(xl) {
+    @include mix.bp(xl) {
       width: 56px;
       height: 56px;
     }
@@ -69,13 +69,13 @@
     font-size: 40px;
     line-height: 1;
     transform: translateY(0.04em);
-    color: color(pink, 900);
+    color: colors.pick(pink, 900);
 
-    @include bp(md) {
+    @include mix.bp(md) {
       font-size: 48px;
     }
 
-    @include bp(xl) {
+    @include mix.bp(xl) {
       font-size: 56px;
     }
   }
@@ -85,17 +85,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    gap: space(2);
+    gap: t.space(2);
     padding: 8px 8px 16px 8px;
-    background: rgba(color(neutral, 0), 0.7);
+    background: rgba(colors.pick(neutral, 0), 0.7);
     border-radius: 12px;
 
-    @include bp(md) {
+    @include mix.bp(md) {
       border-radius: 14px;
       padding: 10px 10px 18px 10px;
     }
 
-    @include bp(xl) {
+    @include mix.bp(xl) {
       border-radius: 16px;
       padding: 12px 12px 20px 12px;
     }
