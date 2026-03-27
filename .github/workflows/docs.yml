@@ -1,43 +1,65 @@
-name: Deploy docs
+name: Deploy Documentation to GitHub Pages
 
+# Trigger workflow on pushes to the main branch
 on:
   push:
     branches: [main]
 
+# Define required permissions for the workflow
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read     # Needed to access repository contents
+  pages: write       # Needed to publish to GitHub Pages
+  id-token: write    # Required for authentication if using OIDC or other token-based actions
 
+# Ensure only one deployment runs at a time
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
   deploy:
+    # Use the latest Ubuntu runner
     runs-on: ubuntu-latest
+
+    # Associate the deployment with the GitHub Pages environment
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
+
     steps:
-      - uses: actions/checkout@v4
+      # Step 1: Checkout the repository to access source files
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v3
+      # Step 2: Set up pnpm package manager
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v5
         with:
-          version: latest
+          version: 10    # Specify pnpm version
+          cache: true    # Enable caching to speed up installs
 
-      - uses: actions/setup-node@v4
+      # Step 3: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
-          cache: pnpm
+          node-version: 24  # Specify Node.js version
+          cache: pnpm       # Cache pnpm dependencies for faster builds
 
-      - run: pnpm install --frozen-lockfile
+      # Step 4: Install dependencies exactly as specified in lockfile
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
 
-      - run: pnpm generate
+      # Step 5: Generate static documentation site
+      - name: Build Documentation
+        run: pnpm generate
 
-      - uses: actions/upload-pages-artifact@v3
+      # Step 6: Upload generated site for deployment
+      - name: Upload GitHub Pages Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: .docs/code
+          path: .docs/code  # Path to generated static site
 
-      - uses: actions/deploy-pages@v4
-        id: deploy
+      # Step 7: Deploy the uploaded artifact to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        id: deploy  # Allows access to page URL via outputs

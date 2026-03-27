@@ -4,7 +4,7 @@ import { Transition } from "@headlessui/react";
 import type { ReactNode } from "react";
 import styles from "./Tooltip.module.scss";
 
-interface TooltipProps {
+export interface TooltipProps {
   /** Text shown in the tooltip bubble. */
   label: string;
   /** Whether the tooltip is visible. */

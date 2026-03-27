@@ -19,7 +19,7 @@ export interface TabbedCardTab {
   content: ReactNode;
 }
 
-interface TabbedCardProps {
+export interface TabbedCardProps {
   /** Tab definitions. */
   tabs: TabbedCardTab[];
   /**
