@@ -21,10 +21,12 @@
     "paths": {
       "#/*": ["./src/*"],
       "#components/*": ["./src/components/*"],
+      "#ui": ["./src/components/ui/index.ts"],
       "#ui/*": ["./src/components/ui/*"],
       "#styles/*": ["./src/styles/*"],
       "#assets/*": ["./src/assets/*"],
-      "#lib/*": ["./src/lib/*"]
+      "#lib/*": ["./src/lib/*"],
+      "#config/*": ["./src/config/*"]
     }
   },
   "include": [

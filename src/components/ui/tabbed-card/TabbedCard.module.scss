@@ -1,0 +1,123 @@
+@use '../../../styles/colors' as colors;
+@use '../../../styles/mixins' as mix;
+
+.tabbed-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  width: 100%;
+
+  @include mix.bp(lg) {
+    width: auto;
+  }
+
+  &__tab-list {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    background: colors.pick(neutral, 200);
+    border-radius: 0 0 12px 12px;
+    order: 2;
+
+    @include mix.bp(sm) {
+      align-self: flex-start;
+      border-radius: 12px 12px 0 0;
+      order: 0;
+    }
+  }
+
+  &__tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 8px;
+    opacity: 0.6;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.15s ease, opacity 0.15s ease;
+
+    &[data-selected] {
+      background: colors.pick(neutral, 50);
+      border-radius: 0 0 8px 8px;
+      opacity: 1;
+
+      @include mix.bp(sm) {
+        border-radius: 8px 8px 0 0;
+      }
+    }
+
+    &:not([data-selected]) {
+      .tabbed-card__tab-icon {
+        filter: saturate(0.5);
+      }
+    }
+
+    &:hover:not([data-selected]),
+    &[data-hover]:not([data-selected]) {
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__tab-icon,
+  &__tab-label {
+    pointer-events: none;
+  }
+
+  &__tab-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.15s ease;
+
+    img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+  }
+
+  &__tab-label {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: colors.pick(neutral, 800);
+
+    &--xs {
+      @include mix.bp(sm) {
+        display: none;
+      }
+    }
+
+    &--full {
+      display: none;
+
+      @include mix.bp(sm) {
+        display: inline;
+      }
+    }
+  }
+
+  &__panel {
+    background: colors.pick(neutral, 50);
+    border-radius: 16px;
+    outline: none;
+    order: 1;
+
+    @include mix.bp(sm) {
+      border-radius: 1px 20px 20px 20px;
+      order: 0;
+    }
+  }
+}
