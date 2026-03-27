@@ -1,6 +1,6 @@
 import type { StaticImageData } from "next/image";
-import abstractLogo from "../assets/images/logo_abstract.png";
-import solanaLogo from "../assets/images/logo_solana.png";
+import abstractLogo from "#assets/images/logo_abstract.png";
+import solanaLogo from "#assets/images/logo_solana.png";
 
 export interface Chain {
   /** Unique identifier used as a React key. */
