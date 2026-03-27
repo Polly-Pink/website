@@ -1,6 +1,6 @@
 {
   "entryPointStrategy": "expand",
-  "entryPoints": ["src/components"],
+  "entryPoints": ["src"],
   "out": ".docs/code",
   "excludePrivate": true,
   "excludeInternal": true,
