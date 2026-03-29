@@ -70,15 +70,15 @@ export function archPath(seed: number, width: number, height: number): string {
  */
 export function wavePath(
   seed: number,
-  points: number,
+  peaks: number,
   width: number,
   height: number,
 ): string {
   const r = seededRng(seed);
-  const segW = width / (points + 1);
+  const segW = width / (peaks + 1);
 
   const knots: [number, number][] = [[0, 0]];
-  for (let i = 0; i < points; i++) {
+  for (let i = 0; i < peaks; i++) {
     const x = (i + 1) * segW + (r() - 0.5) * segW * 0.5;
     const y = height * (0.25 + r() * 0.65);
     knots.push([x, y]);

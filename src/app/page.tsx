@@ -12,7 +12,7 @@ export default function Home() {
         topWave={{
           variant: "wave",
           seed: 40,
-          points: 3,
+          peaks: 3,
           rendering: "absolute",
         }}
         bottomWave={{ variant: "arch", seed: 2 }}
@@ -45,7 +45,7 @@ export default function Home() {
         background="#F3FDFF"
         title="Consectetur"
         subtitle="Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea."
-        topWave={{ variant: "wave", seed: 91, points: 3 }}
+        topWave={{ variant: "wave", seed: 91, peaks: 3 }}
         bottomWave={{ variant: "spacer" }}
       >
         <p>

@@ -11,7 +11,7 @@ type WaveSlot =
   | {
       variant?: "wave";
       seed: number;
-      points: number;
+      peaks: number;
       rendering?: "relative" | "absolute";
     };
 
@@ -35,9 +35,9 @@ interface SectionProps extends HTMLAttributes<HTMLElement> {
 
 function waveProps(
   slot: Exclude<WaveSlot, { variant: "spacer" }>,
-): Pick<WaveProps, "variant" | "seed" | "points"> {
+): Pick<WaveProps, "variant" | "seed" | "peaks"> {
   if (slot.variant === "arch") return { variant: "arch", seed: slot.seed };
-  return { variant: "wave", seed: slot.seed, points: slot.points };
+  return { variant: "wave", seed: slot.seed, peaks: slot.peaks };
 }
 
 /**
@@ -49,7 +49,7 @@ function waveProps(
  * <Section
  *   background="#fce4ec"
  *   topWave={{ variant: "arch", seed: 444 }}
- *   bottomWave={{ variant: "wave", seed: 333, points: 2 }}
+ *   bottomWave={{ variant: "wave", seed: 333, peaks: 2 }}
  * >
  *   ...
  * </Section>

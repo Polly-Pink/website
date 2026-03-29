@@ -12,7 +12,7 @@ export interface WaveProps extends SVGAttributes<SVGElement> {
   /** Seed — the same seed always produces the same path. */
   seed: number;
   /** Number of peaks. Required when `variant` is `"wave"`. */
-  points?: number;
+  peaks?: number;
   /** Fill colour — typically the background of the adjacent section. */
   fill: string;
   /** `"top"` flips the wave upward via `scaleY(-1)`. */
@@ -29,7 +29,7 @@ export interface WaveProps extends SVGAttributes<SVGElement> {
 export function Wave({
   variant = "wave",
   seed,
-  points,
+  peaks,
   fill,
   position,
   className,
@@ -73,7 +73,7 @@ export function Wave({
           d={
             variant === "arch"
               ? archPath(seed, width, height)
-              : wavePath(seed, points ?? 2, width, height)
+              : wavePath(seed, peaks ?? 2, width, height)
           }
           fill={fill}
         />
