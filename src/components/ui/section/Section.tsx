@@ -5,7 +5,7 @@ import { Wave } from "#ui/wave";
 import styles from "./Section.module.scss";
 import { SectionHeading } from "./section-heading";
 
-type WaveSlot =
+export type WaveSlot =
   | { variant: "spacer"; rendering?: "relative" | "absolute" }
   | { variant: "arch"; seed: number; rendering?: "relative" | "absolute" }
   | {
