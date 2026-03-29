@@ -5,7 +5,15 @@ import { Wave } from "#ui/wave";
 import styles from "./Section.module.scss";
 import { SectionHeading } from "./section-heading";
 
-interface WaveSlot extends Pick<WaveProps, "variant" | "options"> {}
+type WaveSlot =
+  | { variant: "spacer"; rendering?: "relative" | "absolute" }
+  | { variant: "arch"; seed: number; rendering?: "relative" | "absolute" }
+  | {
+      variant?: "wave";
+      seed: number;
+      points: number;
+      rendering?: "relative" | "absolute";
+    };
 
 interface SectionProps extends HTMLAttributes<HTMLElement> {
   /** Background colour of the section. */
@@ -25,21 +33,23 @@ interface SectionProps extends HTMLAttributes<HTMLElement> {
   children?: ReactNode;
 }
 
-export type { WaveGenOptions } from "#lib/wavegen";
+function waveProps(
+  slot: Exclude<WaveSlot, { variant: "spacer" }>,
+): Pick<WaveProps, "variant" | "seed" | "points"> {
+  if (slot.variant === "arch") return { variant: "arch", seed: slot.seed };
+  return { variant: "wave", seed: slot.seed, points: slot.points };
+}
 
 /**
  * Shared wrapper for every page section. Applies the section background colour
  * and renders optional SVG waves at the top and/or bottom edge to create
  * seamless transitions between adjacent sections.
  *
- * Wave `fill` should match the adjacent section's background so the two
- * sections appear to merge along the wave boundary.
- *
  * @example
  * <Section
  *   background="#fce4ec"
- *   topWave={{ variant: "arch", options: { seed: 444, points: 1, maxHeight: 80 }, fill: "#fff" }}
- *   bottomWave={{ variant: "wave", options: { seed: 333, points: 2, maxHeight: 35 }, fill: "#fff" }}
+ *   topWave={{ variant: "arch", seed: 444 }}
+ *   bottomWave={{ variant: "wave", seed: 333, points: 2 }}
  * >
  *   ...
  * </Section>
@@ -60,20 +70,39 @@ export function Section({
   return (
     <section
       {...rest}
-      className={clsx(styles.section, className)}
+      className={clsx(
+        styles.section,
+        topWave &&
+          topWave.rendering !== "absolute" &&
+          styles["section--has-top-wave"],
+        bottomWave &&
+          bottomWave.rendering !== "absolute" &&
+          styles["section--has-bottom-wave"],
+        className,
+      )}
       style={{ background, ...style } as CSSProperties}
     >
-      {topWave && (
-        <Wave
-          {...topWave}
-          fill={background ?? "transparent"}
-          position="top"
-          className={clsx(
-            styles["section__wave"],
-            styles["section__wave--top"],
-          )}
-        />
-      )}
+      {topWave &&
+        (topWave.variant === "spacer" ? (
+          <div
+            className={clsx(
+              styles["section__wave"],
+              styles["section__wave--top"],
+              styles["section__wave--spacer"],
+            )}
+            style={{ background }}
+          />
+        ) : (
+          <Wave
+            {...waveProps(topWave)}
+            fill={background ?? "transparent"}
+            position="top"
+            className={clsx(
+              styles["section__wave"],
+              styles["section__wave--top"],
+            )}
+          />
+        ))}
       <div className={styles["section__inner"]}>
         {title && (
           <SectionHeading
@@ -85,17 +114,27 @@ export function Section({
         )}
         {children}
       </div>
-      {bottomWave && (
-        <Wave
-          {...bottomWave}
-          fill={background ?? "transparent"}
-          position="bottom"
-          className={clsx(
-            styles["section__wave"],
-            styles["section__wave--bottom"],
-          )}
-        />
-      )}
+      {bottomWave &&
+        (bottomWave.variant === "spacer" ? (
+          <div
+            className={clsx(
+              styles["section__wave"],
+              styles["section__wave--bottom"],
+              styles["section__wave--spacer"],
+            )}
+            style={{ background }}
+          />
+        ) : (
+          <Wave
+            {...waveProps(bottomWave)}
+            fill={background ?? "transparent"}
+            position="bottom"
+            className={clsx(
+              styles["section__wave"],
+              styles["section__wave--bottom"],
+            )}
+          />
+        ))}
     </section>
   );
 }

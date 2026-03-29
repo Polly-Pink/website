@@ -3,26 +3,19 @@
 import clsx from "clsx";
 import type { SVGAttributes } from "react";
 import { useLayoutEffect, useRef, useState } from "react";
-import type { WaveGenOptions } from "#lib/wavegen";
 import { archPath, wavePath } from "#lib/wavegen";
 import styles from "./Wave.module.scss";
 
 export interface WaveProps extends SVGAttributes<SVGElement> {
-  /**
-   * Wave shape.
-   * - `"arch"` — single smooth bump.
-   * - `"wave"` — multi-peak sine-like curve (see `options.points`).
-   */
-  variant: "arch" | "wave";
-  /** Generator options — seed, peak count, amplitude. */
-  options: WaveGenOptions;
+  /** Wave shape — `"arch"` for a hollow arch, `"wave"` for a multi-peak curve. */
+  variant?: "arch" | "wave";
+  /** Seed — the same seed always produces the same path. */
+  seed: number;
+  /** Number of peaks. Required when `variant` is `"wave"`. */
+  points?: number;
   /** Fill colour — typically the background of the adjacent section. */
   fill: string;
-  /**
-   * Edge of the containing section this wave sits on.
-   * - `"bottom"` — right-side up, fills the lower portion of the SVG.
-   * - `"top"` — flipped via `scaleY(-1)` to fill the upper portion.
-   */
+  /** `"top"` flips the wave upward via `scaleY(-1)`. */
   position: "top" | "bottom";
 }
 
@@ -31,11 +24,12 @@ export interface WaveProps extends SVGAttributes<SVGElement> {
  * Pair with `<Section>` via its `topWave` / `bottomWave` props, or render standalone.
  *
  * @example
- * <Wave variant="wave" options={{ seed: 42, points: 2, maxHeight: 35 }} fill="#fff" position="bottom" />
+ * <Wave variant="wave" seed={42} points={2} fill="#fff" position="bottom" />
  */
 export function Wave({
-  variant,
-  options,
+  variant = "wave",
+  seed,
+  points,
   fill,
   position,
   className,
@@ -44,8 +38,6 @@ export function Wave({
   const ref = useRef<SVGSVGElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
 
-  // useLayoutEffect so the initial measurement happens before the browser paints,
-  // avoiding a flash of the empty SVG. ResizeObserver keeps it in sync on drag/resize.
   useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -70,14 +62,18 @@ export function Wave({
       preserveAspectRatio="none"
       aria-hidden="true"
       {...rest}
-      className={clsx(styles.wave, styles[`wave--${position}`], className)}
+      className={clsx(
+        styles.wave,
+        position === "top" && styles["wave--top"],
+        className,
+      )}
     >
       {ready && (
         <path
           d={
             variant === "arch"
-              ? archPath(options, width, height)
-              : wavePath(options, width, height)
+              ? archPath(seed, width, height)
+              : wavePath(seed, points ?? 2, width, height)
           }
           fill={fill}
         />

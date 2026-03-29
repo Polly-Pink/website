@@ -9,16 +9,19 @@ export default function Home() {
         background="#F3FDFF"
         title="Lorem ipsum"
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
-        topWave={{ variant: "wave", options: { seed: 40, points: 3 } }}
-        bottomWave={{ variant: "wave", options: { seed: 15, points: 2 } }}
+        topWave={{
+          variant: "wave",
+          seed: 40,
+          points: 3,
+          rendering: "absolute",
+        }}
+        bottomWave={{ variant: "arch", seed: 2 }}
       />
       <Section
         background="#ffffff"
         variant="secondary"
         title="Dolor sit amet"
         subtitle="Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim."
-        topWave={{ variant: "wave", options: { seed: 28, points: 2 } }}
-        bottomWave={{ variant: "arch", options: { seed: 63, points: 1 } }}
       >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
@@ -42,8 +45,8 @@ export default function Home() {
         background="#F3FDFF"
         title="Consectetur"
         subtitle="Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea."
-        topWave={{ variant: "wave", options: { seed: 91, points: 3 } }}
-        bottomWave={{ variant: "wave", options: { seed: 47, points: 2 } }}
+        topWave={{ variant: "wave", seed: 91, points: 3 }}
+        bottomWave={{ variant: "spacer" }}
       >
         <p>
           Donec eu libero sit amet quam egestas semper. Aenean ultricies mi
@@ -62,7 +65,7 @@ export default function Home() {
         align="center"
         title="Adipiscing elit"
         subtitle="Ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation."
-        topWave={{ variant: "wave", options: { seed: 33, points: 2 } }}
+        topWave={{ variant: "arch", seed: 33, rendering: "absolute" }}
       />
     </main>
   );

@@ -2,19 +2,24 @@
 @use '../../../../styles/tokens' as t;
 @use '../../../../styles/mixins' as mix;
 
-@mixin title-colors($color, $stroke, $shadow: $stroke) {
+@mixin title-colors($color, $stroke) {
   color: $color;
   -webkit-text-stroke: 4px $stroke;
-  text-shadow: -3px 5px 0px $shadow;
+  text-shadow: -3px 5px 0px $stroke;
 
-  @include mix.bp(md) {
+  @include mix.bp(sm) {
     -webkit-text-stroke: 5px $stroke;
-    text-shadow: -3px 6px 0px $shadow;
+    text-shadow: -4px 6px 0px $stroke;
+  }
+
+  @include mix.bp(lg) {
+    -webkit-text-stroke: 6px $stroke;
+    text-shadow: -5px 7px 0px $stroke;
   }
 
   @include mix.bp(xl) {
-    -webkit-text-stroke: 6px $stroke;
-    text-shadow: -4px 8px 0px $shadow;
+    -webkit-text-stroke: 7px $stroke;
+    text-shadow: -5px 8px 0px $stroke;
   }
 }
 
@@ -30,22 +35,26 @@
 
   &__title {
     font-weight: 800;
-    font-size: 60px;
+    font-size: 56px;
     line-height: 0.85;
     paint-order: stroke fill;
 
-    @include mix.bp(md) { font-size: 80px; }
-    @include mix.bp(lg) { font-size: 96px; }
-    @include mix.bp(xl) { font-size: 128px; }
+    @include mix.bp(sm) { font-size: 64px; }
+    @include mix.bp(md) { font-size: 72px; }
+    @include mix.bp(lg) { font-size: 88px; }
+    @include mix.bp(xl) { font-size: 96px; }
+    @include mix.bp(xxl) { font-size: 108px; }
   }
 
   &__subtitle {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.2;
 
-    @include mix.bp(md) { font-size: 22px; }
-    @include mix.bp(xl) { font-size: 32px; }
+    @include mix.bp(sm) { font-size: 18px; }
+    @include mix.bp(lg) { font-size: 20px; }
+    @include mix.bp(xl) { font-size: 24px; }
+    @include mix.bp(xxl) { font-size: 28px; }
   }
 
   &--primary {
@@ -64,7 +73,7 @@
 
   &--tertiary {
     .section-heading__title {
-      @include title-colors(colors.pick(neutral, 0), colors.pick(blue, 950), colors.pick(neutral, 900));
+      @include title-colors(colors.pick(neutral, 0), colors.pick(neutral, 900));
     }
     .section-heading__subtitle { color: colors.pick(blue, 950); }
   }
