@@ -1,7 +1,7 @@
-import { Buttons } from "./buttons";
 import styles from "./Hero.module.scss";
-import { Heading } from "./heading";
-import { Illustration } from "./illustration";
+import { HeroButtons } from "./hero-buttons";
+import { HeroHeading } from "./hero-heading";
+import { HeroIllustration } from "./hero-illustration";
 
 /**
  * Top-of-page hero section for the Polly landing page.
@@ -16,11 +16,11 @@ export function Hero() {
     <section className={styles.hero}>
       <div className={styles["hero__inner"]}>
         <div className={styles["hero__content"]}>
-          <Heading />
-          <Buttons />
+          <HeroHeading />
+          <HeroButtons />
         </div>
 
-        <Illustration />
+        <HeroIllustration />
       </div>
     </section>
   );

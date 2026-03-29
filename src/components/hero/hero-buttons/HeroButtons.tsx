@@ -5,7 +5,7 @@ import { useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { CHAINS } from "#config/chains";
 import { Button, TabbedCard, Tooltip } from "#ui";
-import styles from "./Buttons.module.scss";
+import styles from "./HeroButtons.module.scss";
 
 /**
  * Chain selector card for the hero section.
@@ -15,9 +15,9 @@ import styles from "./Buttons.module.scss";
  * contract address copy plus Trade and Chart CTA links.
  *
  * @example
- * <Buttons />
+ * <HeroButtons />
  */
-export function Buttons() {
+export function HeroButtons() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   return (

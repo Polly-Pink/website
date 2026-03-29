@@ -1,0 +1,74 @@
+@use '../../../styles/mixins' as mix;
+@use '../../../styles/tokens' as t;
+@use '../wave/Wave.module' as wave;
+
+.section {
+  position: relative;
+
+  &--has-top-wave {
+    margin-top: wave.$height-base;
+
+    @include mix.bp(sm)  { margin-top: wave.$height-sm; }
+    @include mix.bp(md)  { margin-top: wave.$height-md; }
+    @include mix.bp(lg)  { margin-top: wave.$height-lg; }
+    @include mix.bp(xl)  { margin-top: wave.$height-xl; }
+    @include mix.bp(xxl) { margin-top: wave.$height-xxl; }
+  }
+
+  &--has-bottom-wave {
+    margin-bottom: wave.$height-base;
+
+    @include mix.bp(sm)  { margin-bottom: wave.$height-sm; }
+    @include mix.bp(md)  { margin-bottom: wave.$height-md; }
+    @include mix.bp(lg)  { margin-bottom: wave.$height-lg; }
+    @include mix.bp(xl)  { margin-bottom: wave.$height-xl; }
+    @include mix.bp(xxl) { margin-bottom: wave.$height-xxl; }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: mix.breakpoint('lg');
+    margin: 0 auto;
+    padding: t.space(8) t.space(6);
+
+    @include mix.bp(sm) {
+      padding: t.space(8) t.space(16);
+    }
+
+    @include mix.bp(md) {
+      padding: t.space(12) t.space(20);
+    }
+
+    @include mix.bp(xl) {
+      padding: t.space(16) 0;
+    }
+  }
+}
+
+.section__wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+
+  &--spacer {
+    height: wave.$height-base;
+
+    @include mix.bp(sm)  { height: wave.$height-sm; }
+    @include mix.bp(md)  { height: wave.$height-md; }
+    @include mix.bp(lg)  { height: wave.$height-lg; }
+    @include mix.bp(xl)  { height: wave.$height-xl; }
+    @include mix.bp(xxl) { height: wave.$height-xxl; }
+  }
+
+  &--bottom {
+    top: 100%;
+    z-index: 1;
+  }
+
+  &--top {
+    bottom: 100%;
+    z-index: 2;
+  }
+}

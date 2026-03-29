@@ -1,0 +1,26 @@
+@use '../../../styles/mixins' as mix;
+
+// Wave heights — imported by Section.module.scss via @use
+$height-base: 40px;
+$height-sm:   48px;
+$height-md:   56px;
+$height-lg:   64px;
+$height-xl:   72px;
+$height-xxl:  80px;
+
+.wave {
+  display: block;
+  width: 100%;
+  height: $height-base;
+  pointer-events: none;
+
+  @include mix.bp(sm)  { height: $height-sm; }
+  @include mix.bp(md)  { height: $height-md; }
+  @include mix.bp(lg)  { height: $height-lg; }
+  @include mix.bp(xl)  { height: $height-xl; }
+  @include mix.bp(xxl) { height: $height-xxl; }
+
+  &--top {
+    transform: scaleY(-1);
+  }
+}
