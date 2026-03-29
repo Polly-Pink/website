@@ -1,14 +1,14 @@
 import clsx from "clsx";
 import { fontDisplay, fontHandwritten } from "#lib/fonts";
-import styles from "./Heading.module.scss";
+import styles from "./HeroHeading.module.scss";
 
 /**
  * Hero display heading: "Hello, I'm / Polly / Community Memecoin".
  *
  * @example
- * <Heading />
+ * <HeroHeading />
  */
-export function Heading() {
+export function HeroHeading() {
   return (
     <div className={styles.heading}>
       <p

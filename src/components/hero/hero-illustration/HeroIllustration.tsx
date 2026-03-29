@@ -1,14 +1,14 @@
 import Image from "next/image";
 import pollyImg from "#assets/images/polly.png";
-import styles from "./Illustration.module.scss";
+import styles from "./HeroIllustration.module.scss";
 
 /**
  * Polly mascot illustration displayed in the hero section.
  *
  * @example
- * <Illustration />
+ * <HeroIllustration />
  */
-export function Illustration() {
+export function HeroIllustration() {
   return (
     <div className={styles.illustration}>
       <Image

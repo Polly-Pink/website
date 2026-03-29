@@ -1,0 +1,40 @@
+@use '../../../styles/mixins' as mix;
+@use '../../../styles/tokens' as t;
+
+.section {
+  position: relative;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: mix.breakpoint('lg');
+    margin: 0 auto;
+    padding: t.space(8) t.space(6);
+
+    @include mix.bp(sm) {
+      padding: t.space(8) t.space(16);
+    }
+
+    @include mix.bp(md) {
+      padding: t.space(12) t.space(20);
+    }
+
+    @include mix.bp(xl) {
+      padding: t.space(24) 0;
+    }
+  }
+}
+
+.section__wave {
+  position: absolute;
+  left: 0;
+
+  &--bottom {
+    top: 100%;
+  }
+
+  &--top {
+    bottom: 100%;
+  }
+}

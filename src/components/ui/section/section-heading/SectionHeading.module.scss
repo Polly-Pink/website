@@ -1,0 +1,71 @@
+@use '../../../../styles/colors' as colors;
+@use '../../../../styles/tokens' as t;
+@use '../../../../styles/mixins' as mix;
+
+@mixin title-colors($color, $stroke, $shadow: $stroke) {
+  color: $color;
+  -webkit-text-stroke: 4px $stroke;
+  text-shadow: -3px 5px 0px $shadow;
+
+  @include mix.bp(md) {
+    -webkit-text-stroke: 5px $stroke;
+    text-shadow: -3px 6px 0px $shadow;
+  }
+
+  @include mix.bp(xl) {
+    -webkit-text-stroke: 6px $stroke;
+    text-shadow: -4px 8px 0px $shadow;
+  }
+}
+
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: t.space(3);
+
+  &--center {
+    align-items: center;
+    text-align: center;
+  }
+
+  &__title {
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 0.85;
+    paint-order: stroke fill;
+
+    @include mix.bp(md) { font-size: 80px; }
+    @include mix.bp(lg) { font-size: 96px; }
+    @include mix.bp(xl) { font-size: 128px; }
+  }
+
+  &__subtitle {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+
+    @include mix.bp(md) { font-size: 22px; }
+    @include mix.bp(xl) { font-size: 32px; }
+  }
+
+  &--primary {
+    .section-heading__title {
+      @include title-colors(colors.pick(blue, 100), colors.pick(blue, 800));
+    }
+    .section-heading__subtitle { color: colors.pick(blue, 700); }
+  }
+
+  &--secondary {
+    .section-heading__title {
+      @include title-colors(colors.pick(pink, 100), colors.pick(pink, 600));
+    }
+    .section-heading__subtitle { color: colors.pick(pink, 950); }
+  }
+
+  &--tertiary {
+    .section-heading__title {
+      @include title-colors(colors.pick(neutral, 0), colors.pick(blue, 950), colors.pick(neutral, 900));
+    }
+    .section-heading__subtitle { color: colors.pick(blue, 950); }
+  }
+}
