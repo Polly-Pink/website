@@ -15,7 +15,7 @@ type WaveSlot =
       rendering?: "relative" | "absolute";
     };
 
-interface SectionProps extends HTMLAttributes<HTMLElement> {
+export interface SectionProps extends HTMLAttributes<HTMLElement> {
   /** Background colour of the section. */
   background?: string;
   /** Colour theme — `primary` is blue, `secondary` is pink, `tertiary` is white on pink bg. Defaults to `primary`. */

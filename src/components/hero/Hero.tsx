@@ -5,7 +5,7 @@ import { HeroIllustration } from "./hero-illustration";
 
 /**
  * Top-of-page hero section for the Polly landing page.
- * Composes {@link Heading}, {@link Buttons}, and the Polly illustration.
+ * Composes {@link HeroHeading}, {@link HeroButtons}, and the Polly illustration.
  * Mobile-first: stacks vertically on small screens, two-column on `lg+`.
  *
  * @example
