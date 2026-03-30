@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { HTMLAttributes } from "react";
+import coinImg from "#assets/images/coin.png";
 import { SOCIALS } from "#config/socials";
 import { fontDisplay } from "#lib/fonts";
 import { IconButton } from "#ui";
@@ -24,7 +25,7 @@ export function Navbar({ ...rest }: HTMLAttributes<HTMLElement>) {
       <nav {...rest} className={styles.navbar}>
         <div className={styles["navbar__logo"]}>
           <Image
-            src="/images/coin.png"
+            src={coinImg}
             alt="Polly"
             width={56}
             height={56}
