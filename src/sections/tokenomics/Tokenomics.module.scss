@@ -1,0 +1,18 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as mix;
+
+.tokenomics {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: t.space(2);
+    width: 100%;
+
+    @include mix.bp(sm) { gap: t.space(3); }
+    @include mix.bp(md) { gap: t.space(4); }
+    @include mix.bp(lg) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: t.space(5);
+    }
+  }
+}

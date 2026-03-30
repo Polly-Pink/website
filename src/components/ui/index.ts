@@ -5,6 +5,8 @@ export { Card } from "./card";
 export type { ActionProps, IconButtonProps, LinkProps } from "./icon-button";
 export { IconButton } from "./icon-button";
 export { Section } from "./section";
+export type { StatBlockProps } from "./stat-block";
+export { StatBlock } from "./stat-block";
 export type { TabbedCardTab } from "./tabbed-card";
 export { TabbedCard } from "./tabbed-card";
 export type { TextProps } from "./text";

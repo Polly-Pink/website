@@ -1,4 +1,5 @@
 import { Hero } from "#components/hero";
+import { Tokenomics } from "#sections/tokenomics";
 import { WhoIsShe } from "#sections/who-is-she";
 import { Section } from "#ui/section";
 
@@ -31,9 +32,16 @@ export default function Home() {
           ultricies eget, tempor sit amet, ante.
         </p>
       </Section>
+      <Tokenomics />
+      <Section
+        background="#ffffff"
+        variant="secondary"
+        title="Socials"
+        subtitle="Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea."
+      />
       <Section
         background="#F3FDFF"
-        title="Consectetur"
+        title="Statistics"
         subtitle="Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea."
         topWave={{ variant: "wave", seed: 91, peaks: 3 }}
         bottomWave={{ variant: "spacer" }}
