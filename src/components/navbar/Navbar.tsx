@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { HTMLAttributes } from "react";
-import { siInstagram, siTelegram, siX } from "simple-icons";
+import { SOCIALS } from "#config/socials";
 import { fontDisplay } from "#lib/fonts";
 import { IconButton } from "#ui";
 import styles from "./Navbar.module.scss";
@@ -39,27 +39,16 @@ export function Navbar({ ...rest }: HTMLAttributes<HTMLElement>) {
         </div>
 
         <div className={styles["navbar__socials"]}>
-          <IconButton
-            variant="link"
-            href="https://t.me/pollypink"
-            label="Telegram"
-          >
-            <BrandIcon icon={siTelegram} />
-          </IconButton>
-          <IconButton
-            variant="link"
-            href="https://x.com/pollypink"
-            label="X (Twitter)"
-          >
-            <BrandIcon icon={siX} />
-          </IconButton>
-          <IconButton
-            variant="link"
-            href="https://instagram.com/pollypink"
-            label="Instagram"
-          >
-            <BrandIcon icon={siInstagram} />
-          </IconButton>
+          {SOCIALS.map((social) => (
+            <IconButton
+              key={social.id}
+              variant="link"
+              href={social.href}
+              label={social.label}
+            >
+              <BrandIcon icon={social.icon} />
+            </IconButton>
+          ))}
         </div>
       </nav>
     </div>
