@@ -1,4 +1,4 @@
-name: Deploy Documentation to GitHub Pages
+name: Documentation
 
 # Trigger workflow on pushes to the main branch
 on:
