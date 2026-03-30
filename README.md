@@ -34,42 +34,14 @@ Mobile-first memecoin landing page for the Polly Pink community. Built with Next
 
 ```
 src/
-  app/
-    layout.tsx        # Root layout — Nav, Footer, global SCSS
-    globals.scss      # @font-face declarations, resets
-    page.tsx          # Page composition (section order)
-  assets/
-    fonts/            # Local font files (TT Trailers)
-    images/           # Static images (coin.png, polly_fact.png, …)
-  components/
-    footer/           # <Footer />
-    hero/             # <Hero />
-    navbar/           # <Navbar />
-    ui/               # Shared primitives
-      button/         # <Button />
-      card/           # <Card />
-      icon-button/    # <IconButton />
-      section/        # <Section /> + <SectionHeading />
-      stat-block/     # <StatBlock />
-      tabbed-card/    # <TabbedCard />
-      text/           # <Text />
-      title/          # <Title />
-      tooltip/        # <Tooltip />
-      wave/           # <Wave />
-  config/
-    socials.ts        # Social links config (X, GitHub, TikTok, Telegram)
-    tokenomics.ts     # Tokenomics stats config
-  lib/
-    fonts.ts          # next/font definitions
-  sections/
-    tokenomics/       # <Tokenomics />
-    who-is-she/       # <WhoIsShe />
-  styles/
-    _colors.scss      # $colors map + pick() function
-    _tokens.scss      # space() + $breakpoints
-    _mixins.scss      # bp() breakpoint mixin
-    _fonts.scss       # $font-* CSS var references
-.designs/             # Design reference PNGs (Desktop.png, Mobile.png)
+  app/                # Next.js App Router — layout, page, global styles
+  assets/             # Fonts and images
+  components/         # Layout components and shared UI primitives
+  config/             # Static data (socials, tokenomics)
+  lib/                # Font definitions (next/font)
+  sections/           # Page sections composed from UI primitives
+  styles/             # SCSS tokens, colors, mixins
+.designs/             # Design references
 ```
 
 ## Getting started
