@@ -1,0 +1,33 @@
+@use '../../../styles/colors' as colors;
+@use '../../../styles/tokens' as t;
+@use '../../../styles/mixins' as mix;
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(4px, 1.5vw, 12px);
+  padding: clamp(16px, 2vw, 32px);
+  background: rgba($color: white, $alpha: 0.7);
+  border: 2px solid rgba($color: colors.pick(blue, 600), $alpha: 0.2);
+  box-shadow: 0px 3px 24px rgba($color: #7daccb, $alpha: 0.15);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 16px;
+  text-align: center;
+
+  &__label {
+    font-weight: 900;
+    font-size: clamp(24px, 2.5vw, 52px);
+    line-height: 1;
+    color: colors.pick(blue, 600);
+  }
+
+  &__value {
+    font-weight: 500;
+    font-size: clamp(20px, 2vw, 32px);
+    line-height: 1.2;
+    color: colors.pick(blue, 400);
+  }
+}
