@@ -1,4 +1,4 @@
-import { siTelegram, siTiktok, siX } from "simple-icons";
+import { siGithub, siTelegram, siTiktok, siX } from "simple-icons";
 
 export interface Social {
   /** Unique identifier used as a React key. */
@@ -17,6 +17,12 @@ export const SOCIALS: Social[] = [
     label: "X (Twitter)",
     href: "https://x.com/pollyxyz",
     icon: siX,
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    href: "https://github.com/Polly-Pink",
+    icon: siGithub,
   },
   {
     id: "tiktok",
