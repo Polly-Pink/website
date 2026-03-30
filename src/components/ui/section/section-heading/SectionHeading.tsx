@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import type { HTMLAttributes } from "react";
-import { fontDisplay } from "#lib/fonts";
+import { Title } from "#ui/title/Title";
 import styles from "./SectionHeading.module.scss";
 
 export interface SectionHeadingProps extends HTMLAttributes<HTMLDivElement> {
@@ -38,14 +38,7 @@ export function SectionHeading({
       )}
       {...rest}
     >
-      <h2
-        className={clsx(
-          styles["section-heading__title"],
-          fontDisplay.className,
-        )}
-      >
-        {title}
-      </h2>
+      <Title variant={variant}>{title}</Title>
       {subtitle && (
         <p className={styles["section-heading__subtitle"]}>{subtitle}</p>
       )}

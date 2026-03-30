@@ -26,7 +26,8 @@
       "#styles/*": ["./src/styles/*"],
       "#assets/*": ["./src/assets/*"],
       "#lib/*": ["./src/lib/*"],
-      "#config/*": ["./src/config/*"]
+      "#config/*": ["./src/config/*"],
+      "#sections/*": ["./src/sections/*"]
     }
   },
   "include": [

@@ -1,0 +1,75 @@
+@use '../../../styles/colors' as colors;
+@use '../../../styles/tokens' as t;
+@use '../../../styles/mixins' as mix;
+
+.card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: t.space(4);
+  gap: t.space(2);
+  background: rgba($color: white, $alpha: 0.7);
+  border: 4px solid rgba($color: colors.pick(blue, 100), $alpha: 0.2);
+  box-shadow: 0 0 24px rgba($color: colors.pick(blue, 100), $alpha: 0.2);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 24px;
+
+  @include mix.bp(sm)  { padding: t.space(6); }
+  @include mix.bp(md)  { padding: t.space(7); }
+  @include mix.bp(lg)  { padding: t.space(8); }
+  @include mix.bp(xl)  { padding: t.space(10); }
+  @include mix.bp(xxl) { padding: t.space(12); }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: t.space(4);
+    flex: 1;
+
+    @include mix.bp(md)  { gap: t.space(5); }
+    @include mix.bp(lg)  { gap: t.space(6); }
+    @include mix.bp(xl)  { gap: t.space(8); }
+    @include mix.bp(xxl) { gap: t.space(10); }
+  }
+
+  &__title {
+    --stroke: clamp(3px, 0.3vw, 5px);
+
+    font-weight: 700;
+    font-size: clamp(28px, 3vw, 48px);
+    line-height: 1;
+    paint-order: stroke fill;
+
+    &--primary {
+      color: colors.pick(blue, 100);
+      -webkit-text-stroke: var(--stroke) colors.pick(blue, 800);
+    }
+
+    &--secondary {
+      color: colors.pick(pink, 100);
+      -webkit-text-stroke: var(--stroke) colors.pick(pink, 600);
+    }
+  }
+
+  &__bowtie {
+    position: absolute;
+    width: 60px;
+    height: auto;
+    pointer-events: none;
+    z-index: 1;
+
+    @include mix.bp(sm)  { width: 70px; }
+    @include mix.bp(md)  { width: 90px; }
+    @include mix.bp(lg)  { width: 100px; }
+    @include mix.bp(xl)  { width: 115px; }
+    @include mix.bp(xxl) { width: 130px; }
+
+    &--top-right    { top: 0; right: 0; transform: translate(25%, -50%) rotate(35deg); }
+    &--top-left     { top: 0; left: 0; transform: translate(-25%, -50%) rotate(-35deg); }
+    &--bottom-right { bottom: 0; right: 0; transform: translate(25%, 50%) rotate(-35deg); }
+    &--bottom-left  { bottom: 0; left: 0; transform: translate(-25%, 50%) rotate(35deg); }
+  }
+}

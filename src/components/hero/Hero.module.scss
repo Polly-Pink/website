@@ -21,10 +21,6 @@
     padding: t.space(60) t.space(6);
 
     @include mix.bp(sm) {
-      padding: t.space(22) t.space(8);
-    }
-
-    @include mix.bp(sm) {
       align-items: flex-start;
       gap: t.space(12);
       padding: t.space(16);

@@ -1,45 +1,30 @@
 import localFont from "next/font/local";
 
-export const fontGoRound = localFont({
+export const fontBody = localFont({
   src: [
     {
-      path: "../assets/fonts/chiron_goround_tc/static/ChironGoRoundTC-ExtraLight.ttf",
-      weight: "200",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/chiron_goround_tc/static/ChironGoRoundTC-Light.ttf",
+      path: "../assets/fonts/fredoka/static/Fredoka-Light.ttf",
       weight: "300",
       style: "normal",
     },
     {
-      path: "../assets/fonts/chiron_goround_tc/static/ChironGoRoundTC-Regular.ttf",
+      path: "../assets/fonts/fredoka/static/Fredoka-Regular.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../assets/fonts/chiron_goround_tc/static/ChironGoRoundTC-Medium.ttf",
+      path: "../assets/fonts/fredoka/static/Fredoka-Medium.ttf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../assets/fonts/chiron_goround_tc/static/ChironGoRoundTC-SemiBold.ttf",
+      path: "../assets/fonts/fredoka/static/Fredoka-SemiBold.ttf",
       weight: "600",
       style: "normal",
     },
     {
-      path: "../assets/fonts/chiron_goround_tc/static/ChironGoRoundTC-Bold.ttf",
+      path: "../assets/fonts/fredoka/static/Fredoka-Bold.ttf",
       weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/chiron_goround_tc/static/ChironGoRoundTC-ExtraBold.ttf",
-      weight: "800",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/chiron_goround_tc/static/ChironGoRoundTC-Black.ttf",
-      weight: "900",
       style: "normal",
     },
   ],
@@ -91,58 +76,6 @@ export const fontDisplay = localFont({
     },
     {
       path: "../assets/fonts/tt_trailers/static/TT-Trailers-Black.ttf",
-      weight: "900",
-      style: "normal",
-    },
-  ],
-  display: "swap",
-  preload: false,
-});
-
-export const fontBody = localFont({
-  src: [
-    {
-      path: "../assets/fonts/onest/static/Onest-Thin.ttf",
-      weight: "100",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/onest/static/Onest-ExtraLight.ttf",
-      weight: "200",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/onest/static/Onest-Light.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/onest/static/Onest-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/onest/static/Onest-Medium.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/onest/static/Onest-SemiBold.ttf",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/onest/static/Onest-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/onest/static/Onest-ExtraBold.ttf",
-      weight: "800",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/onest/static/Onest-Black.ttf",
       weight: "900",
       style: "normal",
     },

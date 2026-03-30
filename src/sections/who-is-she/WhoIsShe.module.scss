@@ -1,0 +1,39 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as mix;
+
+.who-is-she {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: t.space(4);
+
+  @include mix.bp(sm)  { gap: t.space(6); }
+  @include mix.bp(md)  { gap: t.space(8); }
+  @include mix.bp(lg)  { gap: t.space(10); }
+  @include mix.bp(xl)  { gap: t.space(12); }
+  @include mix.bp(xxl) { gap: t.space(16); }
+
+  &__card {
+    flex: 0 0 100%;
+
+    @include mix.bp(md) {
+      flex: 0 0 60%;
+    }
+  }
+
+  &__illustration {
+    display: none;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+
+    @include mix.bp(md) {
+      display: flex;
+    }
+  }
+
+  &__img {
+    max-width: 100%;
+  }
+}
