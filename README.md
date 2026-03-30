@@ -1,7 +1,7 @@
 # Polly Pink
 
 [![Documentation](https://github.com/Polly-Pink/website/actions/workflows/docs.yml/badge.svg)](https://github.com/Polly-Pink/website/actions/workflows/docs.yml)
-[![Deploy](https://api.netlify.com/api/v1/badges/24946d1b-56fb-419b-911b-ff4f11cbd611/deploy-status)](https://app.netlify.com/sites/polly-pink-website/deploys)
+[![Deployment](https://api.netlify.com/api/v1/badges/24946d1b-56fb-419b-911b-ff4f11cbd611/deploy-status)](https://app.netlify.com/sites/polly-pink-website/deploys)
 
 ![Next.js](https://img.shields.io/badge/Next.js_15-black?logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
