@@ -1,0 +1,24 @@
+@use '../../../styles/colors' as colors;
+@use '../../../styles/mixins' as mix;
+
+@mixin title-colors($color, $stroke) {
+  --stroke-color: #{$stroke};
+  --sw: clamp(4px, 0.5vw, 8px);
+  --sh: clamp(3px, 0.5vw, 9px);
+  --sx: clamp(-10px, -0.5vw, -2px);
+
+  color: $color;
+  -webkit-text-stroke: var(--sw) var(--stroke-color);
+  text-shadow: var(--sx) var(--sh) 0px var(--stroke-color);
+  paint-order: stroke fill;
+}
+
+.title {
+  font-weight: 800;
+  font-size: clamp(56px, 6.75vw, 108px);
+  line-height: 0.85;
+
+  &--primary   { @include title-colors(colors.pick(blue, 100), colors.pick(blue, 800)); }
+  &--secondary { @include title-colors(colors.pick(pink, 100), colors.pick(pink, 600)); }
+  &--tertiary  { @include title-colors(colors.pick(neutral, 0), colors.pick(neutral, 900)); }
+}

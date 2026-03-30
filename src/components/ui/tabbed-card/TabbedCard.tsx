@@ -3,7 +3,7 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import clsx from "clsx";
 import type { ReactNode } from "react";
-import { fontGoRound } from "#lib/fonts";
+import { fontDisplay } from "#lib/fonts";
 import styles from "./TabbedCard.module.scss";
 
 export interface TabbedCardTab {
@@ -76,7 +76,7 @@ export function TabbedCard({
                 className={clsx(
                   styles["tabbed-card__tab-label"],
                   styles["tabbed-card__tab-label--xs"],
-                  fontGoRound.className,
+                  fontDisplay.className,
                 )}
                 style={{ pointerEvents: "none" }}
               >
@@ -87,7 +87,7 @@ export function TabbedCard({
               className={clsx(
                 styles["tabbed-card__tab-label"],
                 tab.shortLabel && styles["tabbed-card__tab-label--full"],
-                fontGoRound.className,
+                fontDisplay.className,
               )}
               style={{ pointerEvents: "none" }}
             >

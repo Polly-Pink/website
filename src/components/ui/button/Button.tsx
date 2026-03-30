@@ -4,7 +4,7 @@ import type {
   ButtonHTMLAttributes,
   ReactNode,
 } from "react";
-import { fontGoRound } from "#lib/fonts";
+import { fontBody } from "#lib/fonts";
 import styles from "./Button.module.scss";
 
 interface BaseProps {
@@ -60,7 +60,7 @@ export function Button(props: ButtonProps) {
         className={clsx(
           styles.button,
           styles[`button--${theme}`],
-          fontGoRound.className,
+          fontBody.className,
           className,
         )}
       >
@@ -78,7 +78,7 @@ export function Button(props: ButtonProps) {
       className={clsx(
         styles.button,
         styles[`button--${theme}`],
-        fontGoRound.className,
+        fontBody.className,
         className,
       )}
     >

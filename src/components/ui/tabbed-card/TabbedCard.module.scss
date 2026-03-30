@@ -89,8 +89,9 @@
   }
 
   &__tab-label {
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
     line-height: 1.2;
     color: colors.pick(neutral, 800);
 

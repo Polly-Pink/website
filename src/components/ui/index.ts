@@ -1,10 +1,14 @@
 export type { ButtonActionProps, ButtonLinkProps, ButtonProps } from "./button";
 export { Button } from "./button";
+export type { CardProps } from "./card";
+export { Card } from "./card";
 export type { ActionProps, IconButtonProps, LinkProps } from "./icon-button";
 export { IconButton } from "./icon-button";
 export { Section } from "./section";
 export type { TabbedCardTab } from "./tabbed-card";
 export { TabbedCard } from "./tabbed-card";
+export type { TextProps } from "./text";
+export { Text } from "./text";
 export { Tooltip } from "./tooltip";
 export type { WaveProps } from "./wave";
 export { Wave } from "./wave";

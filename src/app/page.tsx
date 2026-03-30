@@ -1,22 +1,12 @@
 import { Hero } from "#components/hero";
+import { WhoIsShe } from "#sections/who-is-she";
 import { Section } from "#ui/section";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <Section
-        background="#F3FDFF"
-        title="Lorem ipsum"
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
-        topWave={{
-          variant: "wave",
-          seed: 40,
-          peaks: 3,
-          rendering: "absolute",
-        }}
-        bottomWave={{ variant: "arch", seed: 2 }}
-      />
+      <WhoIsShe />
       <Section
         background="#ffffff"
         variant="secondary"

@@ -66,18 +66,10 @@
     font-weight: 800;
     font-style: normal;
     font-variation-settings: 'ital' 0;
-    font-size: 40px;
+    font-size: clamp(40px, 3.5vw, 56px);
     line-height: 1;
     transform: translateY(0.04em);
     color: colors.pick(pink, 900);
-
-    @include mix.bp(md) {
-      font-size: 48px;
-    }
-
-    @include mix.bp(xl) {
-      font-size: 56px;
-    }
   }
 
   &__socials {
@@ -87,7 +79,7 @@
     justify-content: flex-end;
     gap: t.space(2);
     padding: 8px 8px 16px 8px;
-    background: rgba(colors.pick(neutral, 0), 0.7);
+    background: rgba($color: colors.pick(neutral, 0), $alpha: 0.7);
     border-radius: 12px;
 
     @include mix.bp(md) {

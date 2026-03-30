@@ -15,43 +15,23 @@
   &__subtitle {
     font-style: italic;
     font-weight: 800;
-    font-size: 40px;
+    font-size: clamp(40px, 3.5vw, 56px);
     line-height: 1.1;
     color: colors.pick(yellow, 400);
-    -webkit-text-stroke: 6px colors.pick(blue, 900);
+    -webkit-text-stroke: clamp(4px, 0.375vw, 6px) colors.pick(blue, 900);
     paint-order: stroke fill;
-
-    @include mix.bp(md) {
-      font-size: 48px;
-    }
-
-    @include mix.bp(xl) {
-      font-size: 56px;
-    }
   }
 
   &__title {
+    --sw: clamp(6px, 0.75vw, 12px);
+    --sh: clamp(4px, 0.875vw, 14px);
+
     font-weight: 800;
-    font-size: 150px;
+    font-size: clamp(150px, 15.6vw, 250px);
     line-height: 0.8;
     color: colors.pick(pink, 200);
-    -webkit-text-stroke: 4px colors.pick(pink, 900);
-    text-shadow: -6px 6px 0px colors.pick(pink, 900);
-
-    @include mix.bp(md) {
-      font-size: 180px;
-    }
-
-    @include mix.bp(lg) {
-      font-size: 220px;
-      color: colors.pick(pink, 200);
-      -webkit-text-stroke: 5px colors.pick(pink, 900);
-      text-shadow: -7px 7px 0px colors.pick(pink, 900);
-    }
-
-    @include mix.bp(xl) {
-      font-size: 250px;
-    }
+    -webkit-text-stroke: var(--sw) colors.pick(pink, 900);
+    text-shadow: calc(-1 * var(--sh)) var(--sh) 0px colors.pick(pink, 900);
+    paint-order: stroke fill;
   }
-
 }
