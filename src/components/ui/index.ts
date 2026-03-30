@@ -11,6 +11,8 @@ export type { TabbedCardTab } from "./tabbed-card";
 export { TabbedCard } from "./tabbed-card";
 export type { TextProps } from "./text";
 export { Text } from "./text";
+export type { TitleProps } from "./title";
+export { Title } from "./title";
 export { Tooltip } from "./tooltip";
 export type { WaveProps } from "./wave";
 export { Wave } from "./wave";
