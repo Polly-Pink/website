@@ -11,7 +11,7 @@
   padding: clamp(16px, 2vw, 32px);
   background: rgba($color: white, $alpha: 0.7);
   border: 2px solid rgba($color: colors.pick(blue, 600), $alpha: 0.2);
-  box-shadow: 0px 3px 24px rgba($color: #7daccb, $alpha: 0.15);
+  box-shadow: 0px 3px 24px rgba($color: colors.pick(blue, 200), $alpha: 0.15);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
   border-radius: 16px;

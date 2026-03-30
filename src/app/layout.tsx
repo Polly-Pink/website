@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Navbar } from "#components/navbar/Navbar";
+import { Footer } from "#components/footer";
+import { Navbar } from "#components/navbar";
 import { fontBody } from "#lib/fonts";
 import "./globals.scss";
 
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className={fontBody.className}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
