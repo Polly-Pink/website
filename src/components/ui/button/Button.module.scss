@@ -80,13 +80,13 @@
     --btn-shadow-active: 1px;
 
     padding: 4px 12px;
-    font-size: clamp(14px, 1vw, 18px);
-    border-radius: 8px;
+    font-size: clamp(14px, 1.3vw, 18px);
+    border-radius: 10px;
     border-width: 2px;
 
     &:active { transform: translateY(3px); }
 
-    @include mix.bp(md) { border-radius: 10px; }
-    @include mix.bp(xl) { border-radius: 12px; }
+    @include mix.bp(md) { border-radius: 12px; padding: 6px 12px; }
+    @include mix.bp(xl) { border-radius: 14px; padding: 8px 16px; }
   }
 }
