@@ -10,8 +10,7 @@ import styles from "./Navbar.module.scss";
  * Top-level navigation bar for the Polly landing page.
  *
  * Renders the Polly logo + wordmark on the left and a row of social
- * {@link IconButton} links on the right. Positioned absolutely so it
- * overlays the hero without pushing content down.
+ * {@link IconButton} links on the right.
  *
  * All extra props are spread onto the underlying `<nav>` element.
  *

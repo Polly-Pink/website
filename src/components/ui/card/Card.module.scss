@@ -17,6 +17,11 @@
   -webkit-backdrop-filter: blur(9px);
   border-radius: 24px;
 
+  &--secondary {
+    border-color: rgba($color: colors.pick(pink, 200), $alpha: 0.2);
+    box-shadow: 0 0 24px rgba($color: colors.pick(pink, 200), $alpha: 0.2);
+  }
+
   @include mix.bp(sm)  { padding: t.space(6); }
   @include mix.bp(md)  { padding: t.space(7); }
   @include mix.bp(lg)  { padding: t.space(8); }

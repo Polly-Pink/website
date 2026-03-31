@@ -1,0 +1,78 @@
+@use '../../../styles/colors' as colors;
+@use '../../../styles/tokens' as t;
+@use '../../../styles/mixins' as mix;
+
+.segmented-control {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  gap: t.space(1);
+  border-radius: 10px;
+  background: colors.pick(neutral, 200);
+  padding: t.space(0.5);
+
+  &__option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: t.space(2);
+    padding: t.space(1) t.space(2);
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    font-size: clamp(20px, 1.5vw, 32px);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: colors.pick(neutral, 800);
+    opacity: 0.6;
+    transition: background 0.15s ease, opacity 0.15s ease;
+
+    &--active {
+      background: colors.pick(neutral, 50);
+      opacity: 1;
+    }
+
+    &:hover:not(&--active) {
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:not([aria-pressed="true"]) {
+      .segmented-control__icon {
+        filter: saturate(0.5);
+      }
+    }
+  }
+
+  &__label--xs {
+    @include mix.bp(sm) { display: none; }
+  }
+
+  &__label--full {
+    display: none;
+
+    @include mix.bp(sm) { display: inline; }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: filter 0.15s ease;
+
+    img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+  }
+}

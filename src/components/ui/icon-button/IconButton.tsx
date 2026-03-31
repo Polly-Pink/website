@@ -13,10 +13,11 @@ interface BaseProps {
   children: ReactNode;
   /**
    * Visual style — defaults to `"primary"`.
-   * - `"primary"` — pink fill, pink shadow (default).
+   * - `"primary"` — pink fill, hard shadow.
    * - `"secondary"` — yellow fill, blue shadow.
+   * - `"outline"` — circle, transparent fill, pink border; no hard shadow.
    */
-  theme?: "primary" | "secondary";
+  theme?: "primary" | "secondary" | "outline";
 }
 
 /** Props for a link variant — renders an `<a>` with `target="_blank"`. */
@@ -60,6 +61,7 @@ export function IconButton(props: IconButtonProps) {
   const className = clsx(
     styles["icon-button"],
     props.theme === "secondary" && styles["icon-button--secondary"],
+    props.theme === "outline" && styles["icon-button--outline"],
   );
 
   if (props.variant === "link") {

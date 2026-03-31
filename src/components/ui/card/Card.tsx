@@ -49,7 +49,14 @@ export function Card({
   ...rest
 }: CardProps) {
   return (
-    <div className={clsx(styles.card, className)} {...rest}>
+    <div
+      className={clsx(
+        styles.card,
+        variant === "secondary" && styles["card--secondary"],
+        className,
+      )}
+      {...rest}
+    >
       {bowtiePosition && (
         <Image
           src={bowtieImg}

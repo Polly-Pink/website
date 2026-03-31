@@ -1,0 +1,41 @@
+@use '../../../styles/colors' as colors;
+@use '../../../styles/tokens' as t;
+@use '../../../styles/mixins' as mix;
+
+.htb-carousel {
+  &__step {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: t.space(4);
+  }
+
+  &__step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: colors.pick(pink, 200);
+    color: colors.pick(pink, 700);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    margin-top: 2px;
+
+    @include mix.bp(md) {
+      width: 36px;
+      height: 36px;
+      font-size: 16px;
+    }
+  }
+
+  &__step-text {
+    font-size: clamp(14px, 1.4vw, 22px);
+    line-height: 1.5;
+    color: colors.pick(neutral, 800);
+    margin: 0;
+  }
+}

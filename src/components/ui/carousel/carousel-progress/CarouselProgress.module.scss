@@ -1,0 +1,33 @@
+@use '../../../../styles/colors' as colors;
+@use '../../../../styles/tokens' as t;
+@use '../../../../styles/mixins' as mix;
+
+.carousel-progress {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: t.space(2);
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 3px;
+    border: none;
+    background: colors.pick(pink, 200);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.15s ease, transform 0.15s ease;
+
+    @include mix.bp(md) { width: 10px; height: 10px; }
+
+    &--active {
+      background: colors.pick(pink, 700);
+      transform: scale(1.25);
+    }
+
+    &:focus-visible {
+      outline: 2px solid colors.pick(pink, 500);
+      outline-offset: 2px;
+    }
+  }
+}

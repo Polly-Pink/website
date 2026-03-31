@@ -34,6 +34,13 @@
     @include mix.shadow($c, 2px);
   }
 
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+    pointer-events: none;
+    box-shadow: none;
+  }
+
   @include mix.bp(md) {
     width: 44px;
     height: 44px;
@@ -54,5 +61,31 @@
 
     &:hover, &:focus-visible { @include mix.shadow($c, 8px); }
     &:active                  { @include mix.shadow($c, 2px); }
+  }
+
+  &--outline {
+    background: transparent;
+    border: 2px solid colors.pick(pink, 200);
+    color: colors.pick(pink, 700);
+    box-shadow: none;
+    transition: background 0.15s ease, opacity 0.15s ease;
+
+    svg { width: 50%; height: 50%; }
+
+    &:hover, &:focus-visible {
+      transform: none;
+      background: colors.pick(pink, 200);
+      box-shadow: none;
+      outline: none;
+    }
+
+    &:active { transform: none; box-shadow: none; }
+
+    &:disabled { opacity: 0.3; cursor: default; }
+
+    &:focus-visible {
+      outline: 2px solid colors.pick(pink, 500);
+      outline-offset: 2px;
+    }
   }
 }

@@ -12,8 +12,17 @@ interface BaseProps {
    * Visual style.
    * - `"primary"` — pink fill, hard shadow; main CTA (Trade).
    * - `"secondary"` — dark-blue fill, yellow text; secondary CTA (Chart).
+   * - `"outline"` — transparent background, pink border; low-emphasis action.
    */
-  theme: "primary" | "secondary";
+  theme: "primary" | "secondary" | "outline";
+  /**
+   * Size variant. Defaults to full size.
+   * - `"sm"` — smaller padding, font, and border radius.
+   *
+   * @example
+   * <Button variant="link" theme="outline" size="sm" href="…">Open DEX</Button>
+   */
+  size?: "sm";
   children: ReactNode;
 }
 
@@ -50,16 +59,30 @@ export type ButtonProps = ButtonLinkProps | ButtonActionProps;
  */
 export function Button(props: ButtonProps) {
   if (props.variant === "link") {
-    const { variant, theme, className, children, ...rest } =
-      props as ButtonLinkProps;
+    const {
+      variant,
+      theme,
+      size,
+      className,
+      children,
+      href,
+      "aria-disabled": ariaDisabled,
+      ...rest
+    } = props as ButtonLinkProps & {
+      "aria-disabled"?: boolean | "true" | "false";
+    };
+    const isDisabled = ariaDisabled === true || ariaDisabled === "true";
     return (
       <a
+        href={isDisabled ? undefined : href}
         target="_blank"
         rel="noopener noreferrer"
         {...rest}
+        aria-disabled={isDisabled || undefined}
         className={clsx(
           styles.button,
           styles[`button--${theme}`],
+          size && styles[`button--${size}`],
           fontBody.className,
           className,
         )}
@@ -69,7 +92,7 @@ export function Button(props: ButtonProps) {
     );
   }
 
-  const { variant, theme, className, children, ...rest } =
+  const { variant, theme, size, className, children, ...rest } =
     props as ButtonActionProps;
   return (
     <button
@@ -78,6 +101,7 @@ export function Button(props: ButtonProps) {
       className={clsx(
         styles.button,
         styles[`button--${theme}`],
+        size && styles[`button--${size}`],
         fontBody.className,
         className,
       )}

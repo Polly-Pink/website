@@ -26,7 +26,7 @@ const contractAddresses = {
   abstract: "0x987CF44F3F5d854eC0703123d7fD003a8b56eBb4",
 };
 
-export const CHAINS: Chain[] = [
+export const CHAINS = [
   {
     id: "abstract",
     label: "Abstract",
@@ -47,4 +47,6 @@ export const CHAINS: Chain[] = [
     tradeUrl: `https://jup.ag/?buy=${contractAddresses.solana}&sell=So11111111111111111111111111111111111111112`,
     chartUrl: `https://birdeye.so/solana/token/${contractAddresses.solana}`,
   },
-];
+] as const satisfies Chain[];
+
+export type ChainId = (typeof CHAINS)[number]["id"];

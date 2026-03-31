@@ -1,0 +1,36 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as mix;
+
+.how-to-buy {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  gap: t.space(8);
+  margin-top: t.space(8);
+
+  @include mix.bp(md)  { gap: t.space(10); margin-top: t.space(10); }
+  @include mix.bp(lg)  { gap: t.space(12); margin-top: t.space(12); }
+  @include mix.bp(xl)  { margin-top: t.space(14); }
+  @include mix.bp(xxl) { margin-top: t.space(16); }
+
+  &__card {
+    flex: 1;
+  }
+
+  &__polly {
+    display: none;
+    pointer-events: none;
+
+    @include mix.bp(md) {
+      display: block;
+      position: relative;
+      flex-shrink: 0;
+      width: 200px;
+    }
+
+    @include mix.bp(lg)  { width: 320px; }
+    @include mix.bp(xl)  { width: 380px; }
+    @include mix.bp(xxl) { width: 440px; }
+  }
+}

@@ -29,6 +29,8 @@ export interface TabbedCardProps {
   panelClassName?: string;
   /** Extra class merged onto the root element. */
   className?: string;
+  /** Controlled selected tab index. Omit for uncontrolled behaviour. */
+  selectedIndex?: number;
   /** Called with the newly selected index whenever the tab changes. */
   onTabChange?: (index: number) => void;
 }
@@ -53,11 +55,13 @@ export function TabbedCard({
   tabs,
   panelClassName,
   className,
+  selectedIndex,
   onTabChange,
 }: TabbedCardProps) {
   return (
     <TabGroup
       className={clsx(styles["tabbed-card"], className)}
+      selectedIndex={selectedIndex}
       onChange={onTabChange}
     >
       <TabList className={styles["tabbed-card__tab-list"]}>

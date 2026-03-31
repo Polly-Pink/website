@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { CHAINS } from "#config/chains";
+import { useChainStore } from "#lib/chain-store";
 import { Button, TabbedCard, Tooltip } from "#ui";
 import styles from "./HeroButtons.module.scss";
 
@@ -19,10 +20,14 @@ import styles from "./HeroButtons.module.scss";
  */
 export function HeroButtons() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const { chainId, setChainId } = useChainStore();
+  const selectedIndex = CHAINS.findIndex((c) => c.id === chainId);
 
   return (
     <TabbedCard
       panelClassName={styles["buttons__panel"]}
+      selectedIndex={selectedIndex}
+      onTabChange={(i) => setChainId(CHAINS[i].id)}
       tabs={CHAINS.map((chain) => ({
         key: chain.id,
         label: chain.label,

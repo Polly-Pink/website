@@ -29,15 +29,23 @@
     transform: translateY(6px);
   }
 
+  &:disabled,
+  &[disabled],
+  &[aria-disabled="true"] {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
   &--primary {
     $c: colors.pick(pink, 500);
     background: colors.pick(pink, 200);
     color: colors.pick(pink, 700);
     border-color: $c;
-    @include mix.shadow($c, 8px);
+    box-shadow: 0 var(--btn-shadow, 8px) 0 $c;
 
-    &:hover, &:focus-visible { @include mix.shadow($c, 10px); }
-    &:active                  { @include mix.shadow($c, 2px); }
+    &:hover, &:focus-visible { box-shadow: 0 var(--btn-shadow-hover, 10px) 0 $c; }
+    &:active                  { box-shadow: 0 var(--btn-shadow-active, 2px) 0 $c; }
   }
 
   &--secondary {
@@ -45,9 +53,40 @@
     background: colors.pick(yellow, 400);
     color: $c;
     border-color: $c;
-    @include mix.shadow($c, 8px);
+    box-shadow: 0 var(--btn-shadow, 8px) 0 $c;
 
-    &:hover, &:focus-visible { @include mix.shadow($c, 10px); }
-    &:active                  { @include mix.shadow($c, 2px); }
+    &:hover, &:focus-visible { box-shadow: 0 var(--btn-shadow-hover, 10px) 0 $c; }
+    &:active                  { box-shadow: 0 var(--btn-shadow-active, 2px) 0 $c; }
+  }
+
+  &--outline {
+    background: transparent;
+    border-color: colors.pick(pink, 200);
+    color: colors.pick(pink, 700);
+    box-shadow: none;
+
+    &:hover, &:focus-visible {
+      background: colors.pick(pink, 200);
+      transform: none;
+      box-shadow: none;
+    }
+
+    &:active { transform: none; box-shadow: none; }
+  }
+
+  &--sm {
+    --btn-shadow: 4px;
+    --btn-shadow-hover: 5px;
+    --btn-shadow-active: 1px;
+
+    padding: 4px 12px;
+    font-size: clamp(14px, 1vw, 18px);
+    border-radius: 8px;
+    border-width: 2px;
+
+    &:active { transform: translateY(3px); }
+
+    @include mix.bp(md) { border-radius: 10px; }
+    @include mix.bp(xl) { border-radius: 12px; }
   }
 }

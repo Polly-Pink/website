@@ -1,0 +1,25 @@
+@use '../../../styles/tokens' as t;
+@use '../../../styles/mixins' as mix;
+
+@keyframes carousel-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: t.space(8);
+
+  @include mix.bp(md) { gap: t.space(6); }
+
+  &__slide {
+    animation: carousel-fade 0.2s ease both;
+  }
+}
