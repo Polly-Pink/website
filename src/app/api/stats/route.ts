@@ -12,6 +12,7 @@ const EMPTY = {
 };
 
 interface DexPair {
+  chainId?: string;
   fdv?: number;
   marketCap?: number;
   priceUsd?: string;
@@ -24,7 +25,10 @@ function num(v: number | string | undefined): number | null {
   return Number.isFinite(n) ? (n as number) : null;
 }
 
-async function fetchPair(address: string): Promise<DexPair | null> {
+async function fetchPair(
+  address: string,
+  chainId: string,
+): Promise<DexPair | null> {
   try {
     const res = await fetch(
       `https://api.dexscreener.com/latest/dex/tokens/${address}`,
@@ -35,7 +39,8 @@ async function fetchPair(address: string): Promise<DexPair | null> {
       return null;
     }
     const data = await res.json();
-    return data?.pairs?.[0] ?? null;
+    const pairs: DexPair[] = data?.pairs ?? [];
+    return pairs.find((p) => p.chainId === chainId) ?? pairs[0] ?? null;
   } catch (e) {
     console.error("[stats] DexScreener fetch failed:", e);
     return null;
@@ -50,7 +55,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Invalid chain" }, { status: 400 });
   }
 
-  const pair = await fetchPair(chainConfig.address);
+  const pair = await fetchPair(chainConfig.address, chainConfig.id);
 
   if (!pair) {
     return NextResponse.json(EMPTY, { headers: CACHE_HEADERS });
