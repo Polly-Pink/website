@@ -13,9 +13,11 @@
       gap: t.space(3);
     }
 
+    @include mix.bp(md) { gap: t.space(4); }
+
     @include mix.bp(lg) {
       grid-template-columns: repeat(3, 1fr);
-      gap: t.space(4);
+      gap: t.space(5);
     }
   }
 }
