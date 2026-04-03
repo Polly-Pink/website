@@ -12,9 +12,6 @@
 
 Mobile-first memecoin landing page for the Polly Pink community. Built with Next.js 15, TypeScript, and SCSS Modules.
 
-> [!WARNING]
-> 🚧 Under construction — [polly-pink-website.netlify.app](https://polly-pink-website.netlify.app)
-
 ---
 
 ## Stack
