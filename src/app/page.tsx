@@ -1,5 +1,6 @@
 import { Hero } from "#components/hero";
 import { HowToBuy } from "#sections/how-to-buy";
+import { Socials } from "#sections/socials";
 import { Statistics } from "#sections/statistics";
 import { Tokenomics } from "#sections/tokenomics";
 import { WhoIsShe } from "#sections/who-is-she";
@@ -12,12 +13,7 @@ export default function Home() {
       <WhoIsShe />
       <HowToBuy />
       <Tokenomics />
-      <Section
-        background="#ffffff"
-        variant="secondary"
-        title="Socials"
-        subtitle="Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea."
-      />
+      <Socials />
       <Statistics />
       <Section
         background="#FFEDF8"

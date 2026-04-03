@@ -16,12 +16,24 @@ export {
 } from "./carousel";
 export type { ActionProps, IconButtonProps, LinkProps } from "./icon-button";
 export { IconButton } from "./icon-button";
+export type {
+  HorizontalImageCarouselProps,
+  ImageCarouselProps,
+  VerticalImageCarouselProps,
+} from "./image-carousel";
+export {
+  HorizontalImageCarousel,
+  ImageCarousel,
+  VerticalImageCarousel,
+} from "./image-carousel";
 export { Section } from "./section";
 export type {
   SegmentedControlProps,
   SegmentedOption,
 } from "./segmented-control";
 export { SegmentedControl } from "./segmented-control";
+export type { SocialCardProps } from "./social-card";
+export { SocialCard } from "./social-card";
 export type { StatBlockProps } from "./stat-block";
 export { StatBlock } from "./stat-block";
 export type { TabbedCardTab } from "./tabbed-card";
