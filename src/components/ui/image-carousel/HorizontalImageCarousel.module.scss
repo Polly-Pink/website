@@ -1,0 +1,28 @@
+@use '../../../styles/tokens' as t;
+
+.horizontal-image-carousel {
+  display: flex;
+  align-items: center;
+  gap: t.space(3);
+  width: 100%;
+
+  &__track {
+    display: flex;
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 20px 0 28px;
+    gap: t.space(4);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 48px, black calc(100% - 48px), transparent);
+    mask-image: linear-gradient(to right, transparent, black 48px, black calc(100% - 48px), transparent);
+
+    &::-webkit-scrollbar { display: none; }
+
+    > * {
+      flex: 0 0 calc((100% - 2 * t.space(4)) / 3);
+      scroll-snap-align: start;
+    }
+  }
+}

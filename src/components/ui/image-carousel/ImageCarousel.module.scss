@@ -1,0 +1,16 @@
+@use '../../../styles/mixins' as mix;
+
+.image-carousel {
+  &__mobile {
+    width: 100%;
+
+    @include mix.bp(md) { display: none; }
+  }
+
+  &__desktop {
+    display: none;
+    width: 100%;
+
+    @include mix.bp(md) { display: block; }
+  }
+}
