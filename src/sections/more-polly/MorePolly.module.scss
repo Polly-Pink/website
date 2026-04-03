@@ -1,0 +1,34 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as mix;
+
+.more-polly {
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: t.space(4);
+    width: 100%;
+
+    > * { width: 100%; }
+
+    // 2x2 grid between sm and md
+    @include mix.bp(sm) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Back to row layout at md+
+    @include mix.bp(md) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__cas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: t.space(1);
+    width: 100%;
+    margin-top: t.space(1);
+  }
+}

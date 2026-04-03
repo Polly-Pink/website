@@ -10,7 +10,7 @@ import type { ChainId } from "#config/chains";
  * If a daily scrape API is set up in the future, replace this with a fetch
  * to that endpoint and remove the static values.
  */
-export const SOCIAL_FOLLOWERS = { x: 6_920, tiktok: 12_500 };
+export const SOCIAL_FOLLOWERS = { x: 6_924, tiktok: 12_545 };
 export const FOLLOWERS = Object.values(SOCIAL_FOLLOWERS).reduce(
   (a, b) => a + b,
   0,

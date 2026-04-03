@@ -14,6 +14,8 @@ export {
   CarouselProgress,
   CarouselStep,
 } from "./carousel";
+export type { CopyableContractProps } from "./copyable-contract";
+export { CopyableContract } from "./copyable-contract";
 export type { ActionProps, IconButtonProps, LinkProps } from "./icon-button";
 export { IconButton } from "./icon-button";
 export type {
